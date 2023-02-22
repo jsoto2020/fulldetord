@@ -37,8 +37,9 @@ const ProductsPage = () => {
                         component='img'
                         alt={ row.title }
                         className='fadeIn'
-                        image={ row.img }
+                        image={row.img }
                     />
+                    { console.log('imagenes: ',row.img) }
                 </a>
             )
         }
@@ -141,7 +142,7 @@ const eliminaDato = async(item: any) =>{
                         
                            return id.id
                         })
-                        console.log('ids', idslist)
+                        
                         setSelected(idslist)
                     }} 
 
