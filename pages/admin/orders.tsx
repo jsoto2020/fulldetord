@@ -44,13 +44,13 @@ const columns:GridColDef[] = [
 const OrdersPage = () => {
 
     const { data, error } = useSWR<IOrder[]>('/api/admin/orders');
-
+console.log('orders: ',data)
     if ( !data && !error ) return (<></>);
     
     const rows = data!.map( order => ({
         id    : order._id,
-        email : (order.user as IUser).email,
-        name  : (order.user as IUser).name,
+        email : (order.user as IUser).email as any,
+        name  : (order.user as IUser).name as any,
         total : order.total,
         isPaid: order.isPaid,
         noProducts: order.numberOfItems,

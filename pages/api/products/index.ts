@@ -3,6 +3,7 @@ import { db, SHOP_CONSTANTS } from '../../../database'
 import { Product } from '../../../models'
 import { IProduct } from '../../../interfaces/products';
 
+
 type Data = 
 | { message: string }
 | IProduct[]
@@ -13,6 +14,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
         case 'GET':
             return getProducts( req, res )
 
+     
         default:
             return res.status(400).json({
                 message: 'Bad request'

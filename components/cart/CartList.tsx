@@ -22,7 +22,7 @@ export const CartList: FC<Props> = ({ editable = false, products }) => {
     }
 
     const productsToShow = products ? products : cart;
-
+console.log('productos: ',products)
 
     return (
         <>
@@ -31,11 +31,11 @@ export const CartList: FC<Props> = ({ editable = false, products }) => {
                     <Grid container spacing={2} key={ product.slug + product.size } sx={{ mb:1 }}>
                         <Grid item xs={3}>
                             {/* TODO: llevar a la página del producto */}
-                            <NextLink href={`/product/${ product.slug }`} passHref>
+                            <NextLink href={`${ product.slug }`} passHref>
                                 <Link>
                                     <CardActionArea>
                                         <CardMedia 
-                                            image={ `/products/${ product.image }` }
+                                            image={ `${ product.image }` }
                                             component='img'
                                             sx={{ borderRadius: '5px' }}
                                         />

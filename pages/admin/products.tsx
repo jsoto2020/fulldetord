@@ -1,14 +1,32 @@
 import NextLink from 'next/link';
-import { AddOutlined, CategoryOutlined } from '@mui/icons-material';
-import { Box, Button, CardMedia, Grid, Link } from '@mui/material'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { AddOutlined, CategoryOutlined, DeleteOutline } from '@mui/icons-material';
+import { Box, Button,  CardMedia,  Grid, Link } from '@mui/material'
+
+import { DataGrid,  GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import useSWR from 'swr';
 
 import { AdminLayout } from '../../components/layouts'
 import { IProduct  } from '../../interfaces';
+import { useState } from 'react';
+import { tesloApi } from '../../api';
 
 
-const columns:GridColDef[] = [
+
+
+
+const ProductsPage = () => {
+ //   const [selectedRows, setSelectedRows] = useState([]);
+ 
+ const [selecTed, setSelected  ] = useState<String[]>()  
+
+    const { data, error } = useSWR<IProduct[]>('/api/admin/products');
+
+    if ( !data && !error ) return (<></>);
+    
+
+    const columns:GridColDef[] = [
+
+    
     { 
         field: 'img', 
         headerName: 'Foto',
@@ -43,18 +61,10 @@ const columns:GridColDef[] = [
     { field: 'type', headerName: 'Tipo' },
     { field: 'inStock', headerName: 'Inventario' },
     { field: 'price', headerName: 'Precio' },
-    { field: 'sizes', headerName: 'Tallas', width: 250 },
+    { field: 'sizes', headerName: 'Tallas', width: 250 },      
 
 ];
 
-
-
-const ProductsPage = () => {
-
-    const { data, error } = useSWR<IProduct[]>('/api/admin/products');
-
-    if ( !data && !error ) return (<></>);
-    
     const rows = data!.map( product => ({
         
 
@@ -66,10 +76,26 @@ const ProductsPage = () => {
         inStock: product.inStock,
         price: product.price,
         sizes: product.sizes.join(', '),
-        slug: product.slug,
+        slug: product.slug
     }));
     
+const eliminaDato = async(item: any) =>{
+    
+  
+    try {
+        const { data } = await tesloApi({
+            url: '/admin/products',
+            method:  'DELETE',  
+            data: item
+        });
 
+
+    } catch (error) {
+        console.log(error);
+
+    }
+}
+   
   return (
     <AdminLayout 
         title={`Productos (${ data?.length })`} 
@@ -77,22 +103,48 @@ const ProductsPage = () => {
         icon={ <CategoryOutlined /> }
     >
         <Box display='flex' justifyContent='end' sx={{ mb: 2 }}>
-            <Button
+           <Button
                 startIcon={ <AddOutlined /> }
                 color="secondary"
                 href="/admin/products/new"
             >
                 Crear producto
             </Button>
+            <Button
+                sx={{ ml:2 }}
+                startIcon={ <DeleteOutline /> }
+                color="error"
+                onClick={()=>{
+                  eliminaDato(selecTed)
+                }}
+            >
+                Eliminar
+            </Button>
+        
         </Box>
+   
 
          <Grid container className='fadeIn'>
+        
+
             <Grid item xs={12} sx={{ height:650, width: '100%' }}>
                 <DataGrid 
                     rows={ rows }
                     columns={ columns }
                     pageSize={ 10 }
                     rowsPerPageOptions={ [10] }
+                    checkboxSelection
+                    onSelectionModelChange={(ids) => {
+                        const selectedIds = new Set(ids);
+                        const selectedRows = rows.filter((row) => selectedIds.has(row.id))
+                        const idslist = selectedRows.map(id =>{
+                        
+                           return id.id
+                        })
+                        console.log('ids', idslist)
+                        setSelected(idslist)
+                    }} 
+
                 />
 
             </Grid>

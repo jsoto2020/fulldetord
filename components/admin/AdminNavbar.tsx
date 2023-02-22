@@ -17,7 +17,7 @@ export const AdminNavbar = () => {
             <Toolbar>
                 <NextLink href='/' passHref>
                     <Link display='flex' alignItems='center'>
-                        <Typography variant='h6'>Teslo |</Typography>
+                    <img src="/logo.png" width='100' height='100' />
                         <Typography sx={{ ml: 0.5 }}>Shop</Typography>
                     </Link>  
                 </NextLink>

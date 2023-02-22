@@ -5,6 +5,7 @@ import { db } from '../../../database';
 import { IProduct } from '../../../interfaces/products';
 import { Product } from '../../../models';
 
+
 type Data = 
 | { message: string }
 | IProduct[]
@@ -22,12 +23,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
         case 'POST':
             return createProduct( req, res )
-            
+
+        case 'DELETE':
+           return deleteProducts(req,res)
+    
         default:
             return res.status(400).json({ message: 'Bad request' });
     }
     
-    res.status(200).json({ message: 'Example' })
+    
 }
 
 
@@ -137,4 +141,30 @@ const createProduct = async(req: NextApiRequest, res: NextApiResponse<Data>) => 
         return res.status(400).json({ message: 'Revisar logs del servidor' });
      }
 
+}
+
+const deleteProducts = async(req: NextApiRequest, res: NextApiResponse) =>{
+
+    if(!req){
+     return;
+    }
+     
+      const ids = req.body.map((id:string[])=>{
+    
+            return id
+    
+    })
+    
+    
+    
+    await db.connect()
+    await Product.deleteMany({ _id: { $in: ids} }
+        
+        )
+  await  db.disconnect()
+
+    
+    
+
+    return res.status(200).json({ message: 'Producto Eliminado' });
 }
