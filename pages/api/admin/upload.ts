@@ -35,7 +35,9 @@ const saveFile = async( file: formidable.File ): Promise<string> => {
      const data = fs.readFileSync( file.filepath );
      fs.writeFileSync(`./public/products/fulldetord/${ file.originalFilename }`, data);
      fs.unlinkSync( file.filepath ); // elimina
+
      console.log('ruta:', file.filepath)
+     
      return `/products/fulldetord/${ file.originalFilename }`;
 
  /*    const { secure_url } = await cloudinary.uploader.upload( file.filepath );
@@ -68,7 +70,7 @@ const parseFiles = async(req: NextApiRequest): Promise<string> => {
 const uploadFile = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
     
     const imageUrl = await parseFiles(req);
-    
+console.log('tengo el file: ',imageUrl)    
     return res.status(200).json({ message: imageUrl });
 
 }
