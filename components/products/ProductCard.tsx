@@ -49,7 +49,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
                             image={ productImage }
                             alt={ product.title }
                             onLoad={ () => setIsImageLoaded(true) }
-                            sx={{ width: 355 }}
+                            sx={{ width: 370 }}
                         />
 
                     </CardActionArea>
