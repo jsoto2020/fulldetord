@@ -56,7 +56,7 @@ const getProducts = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
         return product;
     })
 
-
+console.log('retorno: ',updatedProducts)
     res.status(200).json( updatedProducts );
 
 }
