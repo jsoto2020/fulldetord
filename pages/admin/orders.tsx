@@ -44,7 +44,7 @@ const columns:GridColDef[] = [
 const OrdersPage = () => {
 
     const { data, error } = useSWR<IOrder[]>('/api/admin/orders');
-console.log('orders: ',data)
+// console.log('orders: ',data)
     if ( !data && !error ) return (<></>);
     
     const rows = data!.map( order => ({

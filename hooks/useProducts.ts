@@ -8,7 +8,7 @@ export const useProducts = (url: string, config: SWRConfiguration = {} ) => {
 
     // const { data, error } = useSWR<IProduct[]>(`/api${ url }`, fetcher, config );
     const { data, error } = useSWR<IProduct[]>(`/api${ url }`, config );
-    console.log('data ini: ',data)
+  //  console.log('data ini: ',data)
     return {
         products: data || [],
         isLoading: !error && !data,

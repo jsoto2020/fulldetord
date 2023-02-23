@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
+import confetti from 'canvas-confetti';
 import { Box, Button, capitalize, Card, CardActions, CardMedia, Checkbox, Chip, Divider, FormControl, FormControlLabel, 
          FormGroup, FormLabel, Grid,  Radio, RadioGroup, TextField } from '@mui/material';
 import { DriveFileRenameOutline, SaveOutlined, UploadOutlined } from '@mui/icons-material';
@@ -46,6 +47,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
     const fileInputRef = useRef<HTMLInputElement>(null)
     const [ newTagValue, setNewTagValue ] = useState('');
     const [isSaving, setIsSaving] = useState(false);
+    
 
     const { register, handleSubmit, formState:{ errors }, getValues, setValue, watch } = useForm<FormData>({
         defaultValues: product
@@ -98,7 +100,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
     }
 
     const onFilesSelected = async({ target }: ChangeEvent<HTMLInputElement>) => {
-        console.log('imagen: ',target.files)
+      //  console.log('imagen: ',target.files)
         if ( !target.files || target.files.length === 0 ) {
             return;
         }
@@ -116,7 +118,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
 
 
         } catch (error) {
-            console.log({ error });
+      //      console.log({ error });
         }
     }
 
@@ -153,7 +155,17 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
             console.log(error);
             setIsSaving(false);
         }
-         
+        
+        confetti({
+            zIndex: 999,
+            particleCount: 100,
+            spread: 160,
+            angle: -100,
+            origin: {
+              x: 1,
+              y: 0,
+            }
+          })
         router.push('/admin/products')
     }
 
@@ -165,6 +177,15 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
         >
             <form onSubmit={ handleSubmit( onSubmit ) }>
                 <Box display='flex' justifyContent='end' sx={{ mb: 1 }}>
+                {
+                isSaving ?
+                
+                   <Chip label="Registro Adicionado" color="success"  sx={{ mb: 1 }} />
+                    
+                  
+                
+                : <></>
+                }
                     <Button 
                         color="secondary"
                         startIcon={ <SaveOutlined /> }
@@ -174,8 +195,10 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
                         >
                         Guardar
                     </Button>
+                   
+                   
                 </Box>
-
+                
                 <Grid container spacing={2}>
                     {/* Data */}
                     <Grid item xs={12} sm={ 6 }>

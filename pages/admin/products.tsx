@@ -39,7 +39,7 @@ const ProductsPage = () => {
                         className='fadeIn'
                         image={row.img }
                     />
-                    { console.log('imagenes: ',row.img) }
+                    
                 </a>
             )
         }
