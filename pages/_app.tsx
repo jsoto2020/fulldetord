@@ -10,6 +10,7 @@ import { SWRConfig } from 'swr';
 import { lightTheme } from '../themes';
 import { AuthProvider, CartProvider, UiProvider } from '../context';
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SessionProvider>
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <UiProvider>
                 <ThemeProvider theme={ lightTheme}>
                     <CssBaseline />
+                    
                     <Component {...pageProps} />
                 </ThemeProvider>
               </UiProvider>
