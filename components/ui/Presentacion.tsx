@@ -4,16 +4,8 @@ import { Box, Card, CardMedia } from '@mui/material'
 const Presentacion = () => {
   return (
     <Box flex={ 1}>
-        <Card sx={{ maxWidth: 400}}>
-            <CardMedia 
-            
-                sx={{ height:140 }}
-                image="/presenta.gif"
-            
-            />
-                
+                <img src="/presenta.gif" width='500' height='500' /> 
              
-        </Card>
         
     </Box>
   )

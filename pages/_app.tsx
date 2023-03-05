@@ -9,6 +9,7 @@ import { SWRConfig } from 'swr';
 
 import { lightTheme } from '../themes';
 import { AuthProvider, CartProvider, UiProvider } from '../context';
+import Presentacion from '../components/ui/Presentacion';
 
 
 function MyApp({ Component, pageProps }: AppProps) {

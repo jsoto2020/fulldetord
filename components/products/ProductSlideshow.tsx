@@ -9,6 +9,7 @@ interface Props {
 }
 
 export const ProductSlideshow: FC<Props> = ({ images }) => {
+    console.log('slide: ', images)
   return (
     <Slide
         easing="ease"
@@ -17,7 +18,8 @@ export const ProductSlideshow: FC<Props> = ({ images }) => {
     >
         {
             images.map( image =>  {
-                const url = `${ image }`;
+                const url = `product/${ image }`;
+                
                 return (
                     <div className={ styles['each-slide'] } key={ image }>
                         <div style={{
