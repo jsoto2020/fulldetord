@@ -2,6 +2,7 @@
 import { ConfirmationNumberOutlined } from '@mui/icons-material'
 import { Chip, Grid } from '@mui/material'
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import type {} from '@mui/x-data-grid/themeAugmentation';
 import useSWR from 'swr';
 
 import { AdminLayout } from '../../components/layouts'
