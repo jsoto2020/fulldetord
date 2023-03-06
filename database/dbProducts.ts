@@ -49,8 +49,10 @@ export const getProductsByTerm = async ( term:string): Promise<IProduct[]> => {
 
 export const getAllProducts = async(): Promise<IProduct[]> => {
 
+    
     await db.connect();
     const products = await Product.find().lean();
+    console.log('productos: ',products)
     await db.disconnect();
 
 
