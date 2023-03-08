@@ -42,7 +42,7 @@ export const Navbar = () => {
                             <Button color={ 'info'}>Productos</Button>
                         </Link>
                     </NextLink>
-                    <NextLink href='/about' passHref>
+                    <NextLink href='/aboutus' passHref>
                         <Link>
                             <Button color={'info'}>About</Button>
                         </Link>
