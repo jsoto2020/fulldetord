@@ -18,7 +18,7 @@ export const ProductSlideshow: FC<Props> = ({ images }) => {
     >
         {
             images.map( image =>  {
-                const url = `product/${ image }`;
+                const url = `${ image }`;
                 
                 return (
                     <div className={ styles['each-slide'] } key={ image }>
