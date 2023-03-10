@@ -11,7 +11,7 @@ interface Props {
 export const ProductList: FC<Props> = ({ products }) => {
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} sx={{ mt: 3 }}>
         
         {
             products.map( product => (
