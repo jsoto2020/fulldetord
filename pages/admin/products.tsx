@@ -102,6 +102,7 @@ const eliminaDato = async(item: any) =>{
         title={`Productos (${ data?.length })`} 
         subTitle={'Mantenimiento de productos'}
         icon={ <CategoryOutlined /> }
+        
     >
         <Box display='flex' justifyContent='end' sx={{ mb: 2 }}>
            <Button
@@ -125,7 +126,7 @@ const eliminaDato = async(item: any) =>{
         </Box>
    
 
-         <Grid container className='fadeIn'>
+         <Grid container className='fadeIn' sx={{ backgroundColor:'whitesmoke' }}>
         
 
             <Grid item xs={12} sx={{ height:650, width: '100%' }}>

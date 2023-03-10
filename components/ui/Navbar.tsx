@@ -101,7 +101,8 @@ export const Navbar = () => {
                     sx={{ display: { xs: 'flex', sm: 'none' } }}
                     onClick={ toggleSideMenu }
                 >
-                    <SearchOutlined />
+                    <Avatar alt="Remy Sharp" src="/static/buscar.png" sx={{ width:80 , height: 80 }} />
+                    {/* <SearchOutlined /> */}
                 </IconButton>
 
                 <NextLink href="/cart" passHref>

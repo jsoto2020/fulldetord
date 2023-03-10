@@ -85,35 +85,26 @@ export const SideMenu = () => {
                 <ListItem 
                     button 
                     sx={{ display: { xs: '', sm: 'none' } }} 
-                    onClick={ () => navigateTo('/category/men') }
+                    onClick={ () => navigateTo('/') }
                 >
                     <ListItemIcon>
                         <MaleOutlined/>
                     </ListItemIcon>
-                    <ListItemText primary={'Hombres'} />
+                    <ListItemText primary={'Productos'} />
                 </ListItem>
 
                 <ListItem 
                     button 
                     sx={{ display: { xs: '', sm: 'none' } }}
-                    onClick={ () => navigateTo('/category/women') }
+                    onClick={ () => navigateTo('/aboutus') }
                 >
                     <ListItemIcon>
                         <FemaleOutlined/>
                     </ListItemIcon>
-                    <ListItemText primary={'Mujeres'} />
+                    <ListItemText primary={'About Us'} />
                 </ListItem>
 
-                <ListItem 
-                    button 
-                    sx={{ display: { xs: '', sm: 'none' } }}
-                    onClick={ () => navigateTo('/category/kid') }
-                >
-                    <ListItemIcon>
-                        <EscalatorWarningOutlined/>
-                    </ListItemIcon>
-                    <ListItemText primary={'Niños'} />
-                </ListItem>
+              
 
 
                 {
