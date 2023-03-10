@@ -126,7 +126,7 @@ const eliminaDato = async(item: any) =>{
         </Box>
    
 
-         <Grid container className='fadeIn' sx={{ backgroundColor:'whitesmoke' }}>
+         <Grid container className='fadeIn' sx={{ backgroundColor:'whitesmoke'}}>
         
 
             <Grid item xs={12} sx={{ height:650, width: '100%' }}>

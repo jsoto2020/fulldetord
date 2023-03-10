@@ -26,7 +26,7 @@ export const Navbar = () => {
 
     return (
         <AppBar>
-            <Toolbar>
+            <Toolbar >
                 <NextLink href='/' passHref>
                     <Link display='flex' alignItems='center' sx={{mt:5 }}>
                     <img src="/logo.png" width='100' height='100' />

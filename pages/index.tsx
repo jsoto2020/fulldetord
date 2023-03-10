@@ -39,7 +39,7 @@ const HomePage: NextPage = () => {
   return (
     <ShopLayout title={'FulldetoRD'} pageDescription={'Encuentra Productos Divertidos'}>
         
-        <Typography variant='h2' sx={{ mb: 1 }}>Todos los productos</Typography>
+        {/* <Typography variant='h2' sx={{ mb: 1 }}>Todos los productos</Typography> */}
         {
           loading
           

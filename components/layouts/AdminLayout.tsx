@@ -15,7 +15,7 @@ export const AdminLayout:FC<Props> = ({ children, title, subTitle, icon }) => {
   return (
     <>
 
-        <nav>
+        <nav >
             <AdminNavbar />
         </nav>
 
@@ -27,16 +27,16 @@ export const AdminLayout:FC<Props> = ({ children, title, subTitle, icon }) => {
             padding: '0px 30px'
         }}>
 
-            <Box display="flex" flexDirection='column'>
-                <Typography variant='h1' component='h1'>
+            <Box display="flex" flexDirection='column'  >
+                <Typography variant='h1' component='h1' sx={{ mt:3 }}>
                     { icon }
                     {' '} { title }
                 </Typography>
-                <Typography variant='h2' sx={{ mb: 1 }}>{ subTitle }</Typography>
+                <Typography variant='h2' sx={{ mb: 10 }}>{ subTitle }</Typography>
 
             </Box>
 
-            <Box className='fadeIn'>
+            <Box className='fadeIn' >
                 { children }
             </Box>
 
