@@ -2,10 +2,11 @@ import { useContext, useState } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
-import { AppBar, Badge, Box, Button, IconButton, Input, InputAdornment, Link, Toolbar } from '@mui/material';
+import { AppBar, Avatar, Badge, Box, Button, IconButton, Input, InputAdornment, Link, Toolbar } from '@mui/material';
 import { ClearOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 
 import { CartContext, UiContext } from '../../context';
+import Image from '/background.png';
 
 export const Navbar = () => {
 
@@ -71,8 +72,10 @@ export const Navbar = () => {
                                     <InputAdornment position="end">
                                         <IconButton
                                             onClick={ () => setIsSearchVisible(false) }
+                                            
                                         >
                                             <ClearOutlined />
+                                            
                                         </IconButton>
                                     </InputAdornment>
                                 }
@@ -84,8 +87,10 @@ export const Navbar = () => {
                             onClick={ () => setIsSearchVisible(true) }
                             className="fadeIn"
                             sx={{ display: { xs: 'none', sm: 'flex' } }}
+                            
                         >
-                            <SearchOutlined />
+                            <Avatar alt="Remy Sharp" src="/static/buscar.png" sx={{ width:80 , height: 80 }} />
+                         {/*    <SearchOutlined /> */}
                         </IconButton>
                     )
                 }
@@ -103,7 +108,8 @@ export const Navbar = () => {
                     <Link>
                         <IconButton>
                             <Badge badgeContent={ numberOfItems > 9 ? '+9': numberOfItems  } color="secondary">
-                                <ShoppingCartOutlined />
+                                {/* <ShoppingCartOutlined /> */}
+                                <Avatar alt="Remy Sharp" src="/static/shopping.png" sx={{ width: 50, height: 50 }} />
                             </Badge>
                         </IconButton>
                     </Link>

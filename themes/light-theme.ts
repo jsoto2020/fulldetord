@@ -5,6 +5,7 @@ import { red,  } from '@mui/material/colors';
 export const lightTheme = createTheme({
   palette: {
     mode: 'light',
+    
     primary: {
       main: '#1E1E1E'
     },
@@ -13,9 +14,11 @@ export const lightTheme = createTheme({
     },
     info: {
       main: '#fff'
-    }
+    },
+  
   },
   components: {
+
     MuiLink: {
       defaultProps: {
         underline: 'none',
@@ -34,6 +37,7 @@ export const lightTheme = createTheme({
       }
     },
 
+     
     MuiTypography: {
       styleOverrides: {
         h1: {
@@ -83,7 +87,7 @@ export const lightTheme = createTheme({
           borderRadius: '10px',
         }
       }
-    }
+    },
     
   }
 });

@@ -4,15 +4,29 @@ import { SessionProvider } from 'next-auth/react'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, Paper, ThemeProvider } from '@mui/material';
 import { SWRConfig } from 'swr';
 
 import { lightTheme } from '../themes';
 import { AuthProvider, CartProvider, UiProvider } from '../context';
-import Presentacion from '../components/ui/Presentacion';
 
+
+const imagen = '/background.png';
+
+const styles = {
+    paperContainer: {
+        backgroundImage: `url(${imagen})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        height: "100%"
+    }
+};
 
 function MyApp({ Component, pageProps }: AppProps) {
+  
+
   return (
     <SessionProvider>
       <PayPalScriptProvider options={{ 'client-id': process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || '' }}>
@@ -26,11 +40,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           <AuthProvider>
             <CartProvider>
               <UiProvider>
-                <ThemeProvider theme={ lightTheme}>
+                <Paper style={styles.paperContainer}>
+                 <ThemeProvider theme={ lightTheme} > 
                     <CssBaseline />
                     
                     <Component {...pageProps} />
-                </ThemeProvider>
+                 </ThemeProvider> 
+                 </Paper>
               </UiProvider>
             </CartProvider>
           </AuthProvider>

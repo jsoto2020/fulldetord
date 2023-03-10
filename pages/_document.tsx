@@ -1,3 +1,4 @@
+import { height } from '@mui/system';
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 
 
@@ -16,6 +17,7 @@ class MyDocument extends Document {
                         rel="stylesheet"
                         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
                     />
+             {/*        <link rel="shortcut icon" href="/static/favicon.ico" sizes="32x32" /> */}
                 </Head>
                 <body>
                     <Main />
