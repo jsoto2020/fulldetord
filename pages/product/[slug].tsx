@@ -71,7 +71,7 @@ const ProductPage:NextPage<Props> = ({ product }) => {
           />
         </Grid>
 
-        <Grid item xs={ 12 } sm={ 5 }>
+        <Grid item xs={ 12 } sm={ 5 } sx={{ mt:3 }} >
           <Box display='flex' flexDirection='column'>
 
             {/* titulos */}
