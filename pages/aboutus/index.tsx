@@ -1,11 +1,26 @@
-import { Box, Card, CardMedia } from '@mui/material';
+import { Box, Card, CardMedia, Paper } from '@mui/material';
 import Image from "next/image";
 import { ShopLayout } from "../../components/layouts"
 
 
+const imagen = '/static/blank.png';
+const styles = {
+  paperContainer: {
+      backgroundImage: `url(${imagen})`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center center",
+      backgroundSize: "cover",
+      backgroundAttachment: "fixed",
+      height: "100%"
+  }
+};
+
 const PageAbout = () => {
     const image = "./aboutus/background2.gif";    
   return (
+    <Paper style={styles.paperContainer}>
+
+    
     <ShopLayout title={"About Us "} pageDescription={"Acerca de Nosotros"}  >
         
         <Box display='flex' flexDirection='column' sx={{ mt: 10,alignContent: 'center', lg:"12", md: "8", }}  >
@@ -38,7 +53,7 @@ const PageAbout = () => {
        </Card>
        </Box>
     </ShopLayout>
-    
+    </Paper>
   )
 }
 
