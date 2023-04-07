@@ -23,7 +23,7 @@ export const FullScreenLoading = (  ) => {
   */} 
   
   
-  <img src="/presenta.gif" width='500' height='500' />  
+  <img src="/presenta.gif" width='400' height='400' />  
       
   </Box>
     
